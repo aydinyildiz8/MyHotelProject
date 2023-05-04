@@ -48,6 +48,14 @@ namespace HotelProject.WebApi
 
             services.AddScoped<ISubscribeDal, EfSubscribeDal>();
             services.AddScoped<ISubscribeService, SubscribeManager>();
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("HotelApiCors", opts =>
+                {
+                    opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
             #endregion
 
             services.AddControllers();
@@ -68,6 +76,10 @@ namespace HotelProject.WebApi
             }
 
             app.UseRouting();
+
+            #region Eklenen Configürasyon Ayarlarý
+            app.UseCors("HotelApiCors");
+            #endregion
 
             app.UseAuthorization();
 
