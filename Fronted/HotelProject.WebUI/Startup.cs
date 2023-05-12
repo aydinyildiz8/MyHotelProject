@@ -1,3 +1,5 @@
+using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,10 +25,17 @@ namespace HotelProject.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             #region Eklenen Configürasyon Ayarlarý
-            services.AddHttpClient();          
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddHttpClient();
             #endregion
 
             services.AddControllersWithViews();
+
+            #region Eklenen Configürasyon Ayarlarý
+            services.AddAutoMapper(typeof(Startup));
+            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
