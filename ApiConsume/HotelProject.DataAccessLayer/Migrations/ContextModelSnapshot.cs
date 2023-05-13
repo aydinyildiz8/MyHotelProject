@@ -19,6 +19,36 @@ namespace HotelProject.DataAccessLayer.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.About", b =>
+                {
+                    b.Property<int>("AboutID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AboutContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AboutCustomerCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AboutRoomCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AboutStaffCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AboutTitle1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutTitle2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AboutID");
+
+                    b.ToTable("Abouts");
+                });
+
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.AppRole", b =>
                 {
                     b.Property<int>("Id")
