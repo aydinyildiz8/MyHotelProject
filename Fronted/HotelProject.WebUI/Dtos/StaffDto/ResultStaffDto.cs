@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelProject.EntityLayer.Concrete
+﻿namespace HotelProject.WebUI.Dtos.StaffDto
 {
-    public class Staff
+    public class ResultStaffDto
     {
         public int StaffID { get; set; }
         public string StaffName { get; set; }
@@ -15,6 +9,5 @@ namespace HotelProject.EntityLayer.Concrete
         public string StaffSocialMedia1 { get; set; }
         public string StaffSocialMedia2 { get; set; }
         public string StaffSocialMedia3 { get; set; }
-
     }
 }
