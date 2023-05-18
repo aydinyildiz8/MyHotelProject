@@ -12,17 +12,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{81
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebApi", "ApiConsume\HotelProject.WebApi\HotelProject.WebApi.csproj", "{0DCFD476-397F-4805-98F5-1723DAD648FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.WebApi", "ApiConsume\HotelProject.WebApi\HotelProject.WebApi.csproj", "{0DCFD476-397F-4805-98F5-1723DAD648FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.EntityLayer", "ApiConsume\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj", "{8E645B4B-965D-4357-A32C-F162C8A92859}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.EntityLayer", "ApiConsume\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj", "{8E645B4B-965D-4357-A32C-F162C8A92859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.DataAccessLayer", "ApiConsume\HotelProject.DataAccessLayer\HotelProject.DataAccessLayer.csproj", "{B8D7998A-4F14-4A0B-9095-F5CC0F39A035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.DataAccessLayer", "ApiConsume\HotelProject.DataAccessLayer\HotelProject.DataAccessLayer.csproj", "{B8D7998A-4F14-4A0B-9095-F5CC0F39A035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.BusinessLayer", "ApiConsume\HotelProject.BusinessLayer\HotelProject.BusinessLayer.csproj", "{B2DDBDD2-799A-4AF7-9308-3FE778A5FD67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.BusinessLayer", "ApiConsume\HotelProject.BusinessLayer\HotelProject.BusinessLayer.csproj", "{B2DDBDD2-799A-4AF7-9308-3FE778A5FD67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.DtoLayer", "ApiConsume\HotelProject.DtoLayer\HotelProject.DtoLayer.csproj", "{B1AB0389-CB9B-4850-A276-2DD0A1C6D08D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.DtoLayer", "ApiConsume\HotelProject.DtoLayer\HotelProject.DtoLayer.csproj", "{B1AB0389-CB9B-4850-A276-2DD0A1C6D08D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebUI", "Fronted\HotelProject.WebUI\HotelProject.WebUI.csproj", "{70BFD5DE-C2EB-41F6-890E-15314A3ECF85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelProject.WebUI", "Fronted\HotelProject.WebUI\HotelProject.WebUI.csproj", "{70BFD5DE-C2EB-41F6-890E-15314A3ECF85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{2A81ECA3-9758-4F00-8C1B-212AE10DB1C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RapidApiConsume", "RapidApi\RapidApiConsume\RapidApiConsume.csproj", "{95703443-054F-476E-9395-DE5136F7C22F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JwtProject", "JwtProject", "{E8DBF447-0DD2-4EF3-B9D3-7F64CE1DDC8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiJwt", "JwtProject\WebApiJwt\WebApiJwt.csproj", "{984CA777-4ECE-4214-906E-6635F4125911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +62,14 @@ Global
 		{70BFD5DE-C2EB-41F6-890E-15314A3ECF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70BFD5DE-C2EB-41F6-890E-15314A3ECF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70BFD5DE-C2EB-41F6-890E-15314A3ECF85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95703443-054F-476E-9395-DE5136F7C22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95703443-054F-476E-9395-DE5136F7C22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95703443-054F-476E-9395-DE5136F7C22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95703443-054F-476E-9395-DE5136F7C22F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{984CA777-4ECE-4214-906E-6635F4125911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{984CA777-4ECE-4214-906E-6635F4125911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{984CA777-4ECE-4214-906E-6635F4125911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{984CA777-4ECE-4214-906E-6635F4125911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +81,8 @@ Global
 		{B2DDBDD2-799A-4AF7-9308-3FE778A5FD67} = {30D68EE2-3139-4A7F-B01D-BA99F4B7E72B}
 		{B1AB0389-CB9B-4850-A276-2DD0A1C6D08D} = {30D68EE2-3139-4A7F-B01D-BA99F4B7E72B}
 		{70BFD5DE-C2EB-41F6-890E-15314A3ECF85} = {F6922B53-A399-433A-8F9C-A623739CF870}
+		{95703443-054F-476E-9395-DE5136F7C22F} = {2A81ECA3-9758-4F00-8C1B-212AE10DB1C8}
+		{984CA777-4ECE-4214-906E-6635F4125911} = {E8DBF447-0DD2-4EF3-B9D3-7F64CE1DDC8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE1E3F9D-FDAE-464D-AF64-5A9AA0927271}
