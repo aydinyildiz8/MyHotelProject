@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class ServiceController : Controller
+    public class ServiceAdminController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ServiceController(IHttpClientFactory httpClientFactory)
+        public ServiceAdminController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
