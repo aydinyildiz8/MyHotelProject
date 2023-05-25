@@ -1,0 +1,45 @@
+﻿@model List<InboxContactDto>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<div class="email-left-box">
+    <a href="/ContactAdmin/AddSendMessage/" class="btn btn-primary btn-block">Yeni Mesaj Oluştur</a>
+
+    @await Html.PartialAsync("SideBarAdminContactPartial")
+    @await Html.PartialAsync("SideBarAdminContactCategoryPartial")
+
+</div>
+<div class="email-right-box">
+    <div role="toolbar" class="toolbar">
+        <div class="btn-group">
+            <button class="btn btn-dark" type="button">
+                Gelen Kutusu
+            </button>
+        </div>
+    </div>
+    <div class="email-list m-t-15">
+        @foreach (var item in Model)
+        {
+            <div class="message">
+                <a href="/ContactAdmin/ReceiveMessageDetails/@item.ContactID">
+                    <div class="col-mail col-mail-1">
+                        <div class="email-checkbox">
+                            <input type="checkbox" id="chk2">
+                            <label class="toggle" for="chk2"></label>
+                        </div><span class="star-toggle ti-star"></span>
+                    </div>
+                    <div class="col-mail col-mail-2">
+                        <div class="subject"><b>@item.ContactSubject</b> / @item.ContactMail </div>
+                        <div class="date" style="padding-left: 40px;">@item.ContactDate.ToShortDateString() / @item.ContactDate.ToShortTimeString()</div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+
+

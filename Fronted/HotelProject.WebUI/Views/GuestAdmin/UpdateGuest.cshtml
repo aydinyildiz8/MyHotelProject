@@ -1,10 +1,12 @@
-﻿@model CreateGuestDto
+﻿@model UpdateGuestDto
 @{
-    ViewData["Title"] = "AddGuest";
+    ViewData["Title"] = "UpdateGuest";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
 <form method="post" class="form">
+    <input type="hidden" asp-for="GuestID" />
+
     <label>Tc Numarası</label>
     <input type="text" class="form-control" asp-for="GuestTcNumber" />
     <span asp-validation-for="GuestTcNumber" class="text-danger"></span>
@@ -35,7 +37,7 @@
     <span asp-validation-for="GuestPhone" class="text-danger"></span>
     <br />
 
-    <button class="btn btn-primary">Ekle</button>
+    <button class="btn btn-success">Güncelle</button>
     <a href="/GuestAdmin/Index/" class="btn btn-warning">Geri Dön</a>
 </form>
 

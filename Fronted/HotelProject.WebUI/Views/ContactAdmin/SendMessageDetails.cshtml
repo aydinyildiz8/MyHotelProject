@@ -1,0 +1,46 @@
+﻿@model SendMessageByIdDto
+@{
+    ViewData["Title"] = "SendMessageDetails";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="email-left-box">
+    <a href="/ContactAdmin/AddSendMessage/" class="btn btn-primary btn-block">Yeni Mesaj Oluştur</a>
+
+    @await Html.PartialAsync("SideBarAdminContactPartial")
+    @await Html.PartialAsync("SideBarAdminContactCategoryPartial")
+
+</div>
+<div class="email-right-box">
+    <div role="toolbar" class="toolbar">
+        <div class="btn-group">
+            <button class="btn btn-dark" type="button">
+                Gönderilen Mesaj Detayı
+            </button>
+        </div>
+    </div>
+    <div class="read-content">
+        <div class="media pt-5">
+            <img class="mr-3 rounded-circle" src="~/adminweb/images/avatar/1.jpg">
+            <div class="media-body">
+                <h5 class="m-b-3">@Model.ReceiverName</h5>
+                <p class="m-b-2">@Model.SendMessageDate.ToShortDateString()</p>
+            </div>
+
+        </div>
+        <hr>
+        <div class="media mb-4 mt-1">
+            <div class="media-body">
+                <span class="float-right">@Model.SendMessageDate.ToShortTimeString()</span>
+                <h4 class="m-0 text-primary">@Model.SendMessageContent</h4><small class="text-muted">Kime: @Model.ReveiverMail</small>
+            </div>
+        </div>
+        <p>@Model.SendMessageMessage</p>
+        <hr>
+    </div>
+</div>
+
+
+
+
+
