@@ -1,8 +1,12 @@
 ﻿using HotelProject.WebUI.Dtos.ContactDto;
+using HotelProject.WebUI.Dtos.MessageCategory;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +23,22 @@ namespace HotelProject.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:32685/api/MessageCategory");
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
+
+            List<SelectListItem> messageCategories = (from x in values
+                                                      select new SelectListItem
+                                                      {
+                                                          Text = x.MessageCategoryName,
+                                                          Value = x.MessageCategoryID.ToString()
+                                                      }).ToList();
+            messageCategories.Insert(0, new SelectListItem { Text = "Konu Başlığını Seçiniz", Value = "" });
+            ViewBag.v = messageCategories;
+
             return View();
         }
 
@@ -39,7 +57,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createContactDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            await client.PostAsync("http://localhost:32685/api/Contact", stringContent);
+            await client.PostAsync("http://localhost:32685/api/ReceiveMessage", stringContent);
 
             return RedirectToAction("Index", "Default");
         }

@@ -8,6 +8,8 @@ namespace HotelProject.WebUI.Dtos.ContactDto
         public string ContactMail { get; set; }
         public string ContactSubject { get; set; }
         public string ContactMessage { get; set; }
-        public DateTime ContactDate{ get; set; }
+        public DateTime ContactDate { get; set; }
+
+        public int MessageCategoryID { get; set; }
     }
 }
