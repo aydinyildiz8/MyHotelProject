@@ -1,6 +1,7 @@
 ﻿using HotelProject.WebUI.Dtos.AboutDto;
 using HotelProject.WebUI.Dtos.ContactDto;
 using HotelProject.WebUI.Models.Staff;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace HotelProject.WebUI.Controllers
 {
+   
     public class ContactAdminController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -20,6 +22,8 @@ namespace HotelProject.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+
+
         public async Task<IActionResult> Inbox() //Gelen Kutusu
         {
             var client = _httpClientFactory.CreateClient();
@@ -28,11 +32,16 @@ namespace HotelProject.WebUI.Controllers
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData);
+
+                await ReceiveMessageCount();
+                await SendMessageCount();
                 return View(values);
             }
 
             return View();
         }
+
+
 
         public async Task<IActionResult> SendBox() //Giden Kutusu
         {
@@ -42,11 +51,16 @@ namespace HotelProject.WebUI.Controllers
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultSendBoxContactDto>>(jsonData);
+                await ReceiveMessageCount();
+                await SendMessageCount();
+
                 return View(values);
             }
 
             return View();
         }
+
+
 
         public PartialViewResult SideBarAdminContactPartial()
         {
@@ -59,6 +73,7 @@ namespace HotelProject.WebUI.Controllers
         }
 
 
+
         [HttpGet]
         public IActionResult AddSendMessage() // Yeni Mesaj Oluşturma
         {
@@ -66,7 +81,7 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddSendMessage(CreateSendMessageContactDto createSendMessageContactDto)
+        public async Task<IActionResult> AddSendMessage(CreateSendMessageContactDto createSendMessageContactDto) // Yeni Mesaj Oluşturma
         {
             createSendMessageContactDto.SenderMail = "aydnyldz8@gmail.com";
             createSendMessageContactDto.SenderName = "Admin";
@@ -83,6 +98,8 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
+
+
         [HttpGet]
         public async Task<IActionResult> ReceiveMessageDetails(int id) //Gelen Mesaj Detayı
         {
@@ -96,6 +113,8 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> SendMessageDetails(int id) //Gönderilen Mesaj Detayı
@@ -111,6 +130,35 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
+
+
+        [HttpGet("GetReceiveMessageCount")]
+        public async Task<IActionResult> ReceiveMessageCount() //Gelen Mesaj Sayısı
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:32685/api/ReceiveMessage/GetReceiveMessageCount");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var count = await responseMessage.Content.ReadAsStringAsync();
+                ViewBag.receiveMessageCount = count;
+            }
+            return PartialView("SideBarAdminContactPartial");
+        }
+
+
+
+        [HttpGet("GetSendMessageCount")]
+        public async Task<IActionResult> SendMessageCount() //Giden Mesaj Sayısı
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:32685/api/SendMessage/GetSendMessageCount");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var count = await responseMessage.Content.ReadAsStringAsync();
+                ViewBag.sendMessageCount = count;
+            }
+            return PartialView("SideBarAdminContactPartial");
+        }
 
 
     }
