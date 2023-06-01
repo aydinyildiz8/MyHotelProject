@@ -13,7 +13,7 @@ namespace HotelProject.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server = DESKTOP-99S34I5; initial catalog=ApiDb; integrated security=true");
+            optionsBuilder.UseSqlServer("server = DESKTOP-99S34I5; initial catalog=WebApiDb; integrated security=true");
         }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Service> Services { get; set; }
@@ -26,5 +26,6 @@ namespace HotelProject.DataAccessLayer.Concrete
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<SendMessage> sendMessages { get; set; }
         public DbSet<MessageCategory> messageCategories { get; set; }
+        public DbSet<WorkLocation> workLocations { get; set; }
     }
 }

@@ -23,5 +23,6 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
         [Required(ErrorMessage = "Bu Alan Boş Geçilemez...")]
         [Compare("Password", ErrorMessage = "Şifreler Uyuşmuyor. Kontrol Edip Tekrar Giriniz...")]
         public string ConfirmPassword { get; set; }
+       
     }
 }
