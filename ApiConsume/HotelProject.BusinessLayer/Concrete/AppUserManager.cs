@@ -1,5 +1,6 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstract;
+using HotelProject.DataAccessLayer.Models;
 using HotelProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace HotelProject.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<AppUser> TUserListWithWorkLocation()
+        public List<ResultAppUserViewModel> TUserListWithWorkLocation()
         {
             return _appUserDal.UserListWithWorkLocation();
         }

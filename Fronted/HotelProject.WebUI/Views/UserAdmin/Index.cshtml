@@ -15,7 +15,8 @@
                     <th>Kullanıcı Adı</th>
                     <th>Adı Soyadı</th>
                     <th>Mail Adresi</th>
-                    <th>Şehir</th>
+                    <th>Çalıştığı Şube</th>
+                    <th>Çalıştığı Şehir</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,8 +29,9 @@
                         <td><img src="@item.ImageUrl" class=" rounded-circle mr-3" alt="">@item.UserName</td>
                         <td>@item.Name @item.Surname</td>
                         <td>@item.Email</td>
+                        <td> @item.WorkLocationName
                         <td>
-                            <span>@item.City</span>
+                                @item.WorkLocationCity
                         </td>
                     </tr>
                 }

@@ -1,6 +1,12 @@
-﻿namespace HotelProject.WebUI.Dtos.AppUserDto
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HotelProject.DataAccessLayer.Models
 {
-    public class ResultAppUserDto
+    public class ResultAppUserViewModel
     {
         public string Name { get; set; }
         public string Surname { get; set; }

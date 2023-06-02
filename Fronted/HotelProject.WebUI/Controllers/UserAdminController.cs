@@ -13,18 +13,6 @@ namespace HotelProject.WebUI.Controllers
 {
     public class UserAdminController : Controller
     {
-        //private readonly UserManager<AppUser> _userManager;
-
-        //public UserAdminController(UserManager<AppUser> userManager)
-        //{
-        //    _userManager = userManager;
-        //}
-
-        //public IActionResult Index()
-        //{
-        //    var values = _userManager.Users.ToList();
-        //    return View(values);
-        //}
 
         private readonly IHttpClientFactory _httpClientFactory;
         public UserAdminController(IHttpClientFactory httpClientFactory)
@@ -46,13 +34,6 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
-
-
-
-
-
-
-
 
 
     }

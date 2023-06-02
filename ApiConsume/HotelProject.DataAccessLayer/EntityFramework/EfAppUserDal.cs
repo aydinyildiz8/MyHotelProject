@@ -1,8 +1,10 @@
 ﻿using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.DataAccessLayer.Models;
 using HotelProject.DataAccessLayer.Repositories;
 using HotelProject.EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +20,21 @@ namespace HotelProject.DataAccessLayer.EntityFramework
         {
         }
 
-        public List<AppUser> UserListWithWorkLocation()
+        public List<ResultAppUserViewModel> UserListWithWorkLocation()
         {
             var context = new Context();
-            return context.Users.Include(x => x.workLocation).ToList();
+            var values = context.Users.Include(x => x.workLocation).Select(y => new ResultAppUserViewModel
+            {
+                ImageUrl = y.ImageUrl,
+                Name = y.Name,
+                UserName = y.UserName,
+                Surname = y.Surname,
+                Email = y.Email,
+                WorkLocationName = y.workLocation.WorkLocationName,
+                WorkLocationCity = y.workLocation.WorkLocationCity
+            }).ToList();
+
+            return values;
         }
     }
 }
