@@ -46,5 +46,19 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> ApprovedReservationCancel(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject("İptal Edildi");
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync($"http://localhost:32685/api/Booking/UpdateBookingChangeStatusCancelID/{id}", stringContent);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }

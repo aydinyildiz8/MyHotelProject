@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace HotelProject.BusinessLayer.Concrete
@@ -26,6 +27,11 @@ namespace HotelProject.BusinessLayer.Concrete
         public Guest TGetById(int id)
         {
             return _guestDal.GetById(id);
+        }
+
+        public int TGetGuestCount()
+        {
+            return _guestDal.GetGuestCount();
         }
 
         public List<Guest> TGetList()

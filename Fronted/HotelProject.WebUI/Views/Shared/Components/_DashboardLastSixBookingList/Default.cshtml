@@ -1,0 +1,69 @@
+﻿@model List<ResultLastSixBookingListDto>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Müşteri</th>
+                                    <th>Ülke</th>
+                                    <th>Şehir</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.BookingName</td>
+                                        <td>Ülke</td>
+                                        <td>Şehir</td>
+                                        @if (item.BookingStatus == "Onaylandı")
+                                        {
+                                            <td>
+                                                <div>
+                                                    <div class="progress" style="height: 6px">
+                                                        <div class="progress-bar bg-info" style="width: 100%"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><i class="fa fa-circle-o text-info  mr-2"></i> @item.BookingStatus</td>
+                                        }
+
+                                        @if (item.BookingStatus == "Onay Bekliyor")
+                                        {
+                                            <td>
+                                                <div>
+                                                    <div class="progress" style="height: 6px">
+                                                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><i class="fa fa-circle-o text-warning  mr-2"></i> @item.BookingStatus</td>
+                                        }
+
+                                        @if (item.BookingStatus == "İptal Edildi")
+                                        {
+                                            <td>
+                                                <div>
+                                                    <div class="progress" style="height: 6px">
+                                                        <div class="progress-bar bg-danger" style="width: 25%"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><i class="fa fa-circle-o text-danger  mr-2"></i> @item.BookingStatus</td>
+                                        }
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

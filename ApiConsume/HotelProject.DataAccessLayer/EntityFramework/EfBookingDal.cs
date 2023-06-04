@@ -26,6 +26,14 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             context.SaveChanges();
         }
 
+        public void BookingStatusChangeApprovedCancelID(int id)
+        {
+            var context = new Context();
+            var values = context.Bookings.Find(id);
+            values.BookingStatus = "İptal Edildi";
+            context.SaveChanges();
+        }
+
         public void BookingStatusChangeApprovedID(int id)
         {
             var context = new Context();
@@ -33,6 +41,20 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             values.BookingStatus = "Onaylandı";
             context.SaveChanges();
 
+        }
+
+        public int GetBookingCount()
+        {
+            var context = new Context();
+            var values = context.Bookings.Count();
+            return values;
+        }
+
+        public List<Booking> LastSixBooking()
+        {
+            using var context = new Context();
+            var values = context.Bookings.OrderByDescending(x => x.BookingID).Take(10).ToList();
+            return values;
         }
     }
 }

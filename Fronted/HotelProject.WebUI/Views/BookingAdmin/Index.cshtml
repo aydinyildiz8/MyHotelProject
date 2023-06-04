@@ -40,11 +40,28 @@
                                 <td>@item.BookingName</td>
                                 <td>@(((DateTime)item.BookingCheckin).ToString("dd.MMM.yyyy"))</td>
                                 <td>@(((DateTime)item.BookingCheckout).ToString("dd.MMM.yyyy"))</td>
-                                <td>
-                                    <span class="badge badge-primary px-2">@item.BookingStatus</span>
-                                </td>
+
+                                @if (item.BookingStatus == "Onaylandı")
+                                {
+                                    <td>
+                                        <span class="badge badge-primary px-2">@item.BookingStatus</span>
+                                    </td>
+                                }
+                                 @if (item.BookingStatus == "İptal Edildi")
+                                {
+                                    <td>
+                                        <span class="badge badge-danger px-2">@item.BookingStatus</span>
+                                    </td>
+                                }
+                                  @if (item.BookingStatus == "Onay Bekliyor")
+                                {
+                                    <td>
+                                        <span class="badge badge-warning px-2">@item.BookingStatus</span>
+                                    </td>
+                                }
+
                                 <td><a href="/BookingAdmin/ApprovedReservation/@item.BookingID" class="btn btn-outline-primary">Onayla</a></td>
-                                <td><a href="#" class="btn btn-outline-danger">İptal Et</a></td>
+                                <td><a href="/BookingAdmin/ApprovedReservationCancel/@item.BookingID" class="btn btn-outline-danger">İptal Et</a></td>
                                 <td><a href="#" class="btn btn-outline-warning">Beklet</a></td>
                                 <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
                                 <td><a href="#" class="btn btn-outline-info">Detaylar</a></td>
